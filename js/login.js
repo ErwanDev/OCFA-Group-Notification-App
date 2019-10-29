@@ -22,7 +22,7 @@
 	
 	firebase.auth().onAuthStateChanged(firebaseUser => {
 		if (firebaseUser) {
-			window.location = "index.html";
+			window.location = "login.html";
 			console.log(firebaseUser);
 		} else {
 			console.log('Failed Login')
