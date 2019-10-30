@@ -34,7 +34,7 @@
 	} catch (e) {}
 	
 	firebase.auth().onAuthStateChanged(firebaseUser => {
-		if (firebaseUser && window.location.pathname.substring(window.location.pathname.length - 10, window.location.pathname.length) == "index.html") {
+		if (firebaseUser && (window.location.pathname.substring(window.location.pathname.length - 10, window.location.pathname.length) == "index.html" || window.location.pathname == "/")) {
 			window.location = "login.html";
 			console.log(firebaseUser);
 			console.log('Successful Login');
