@@ -11,21 +11,40 @@
 	};
 	firebase.initializeApp(firebaseConfig);
 
-	document.getElementById("submit").addEventListener('click', e => {
-		var email = document.getElementById("email").value;
-		var password = document.getElementById("password").value;
-		const auth = firebase.auth();
+	try {
+		document.getElementById("submit").addEventListener('click', e => {
+			var email = document.getElementById("email").value;
+			var password = document.getElementById("password").value;
+			const auth = firebase.auth();
 
-		const promise = auth.signInWithEmailAndPassword(email, password);
-		promise.catch(e => console.log(e.message));
-	});
+			const promise = auth.signInWithEmailAndPassword(email, password);
+			promise.catch(e => console.log(e.message));
+		});
+	} catch (e) {}
+	
+	try {
+		document.getElementById("logout").addEventListener('click', e => {
+			firebase.auth().signOut().then(function() {
+				console.log("Sign-out successful.");
+				window.location = "index.html";
+			}).catch(function(error) {
+				console.log("An error happened: " + error);
+			});
+		});
+	} catch (e) {}
 	
 	firebase.auth().onAuthStateChanged(firebaseUser => {
-		if (firebaseUser) {
+		if (firebaseUser && window.location.pathname.substring(window.location.pathname.length - 10, window.location.pathname.length) == "index.html") {
 			window.location = "login.html";
 			console.log(firebaseUser);
+			console.log('Successful Login');
+		} else if (firebaseUser) {
+			console.log('Successful Login');
+		} else if (window.location.pathname.substring(window.location.pathname.length - 10, window.location.pathname.length) == "login.html") {
+			console.log('Failed Login, redirecting');
+			window.location.replace("index.html");
 		} else {
-			console.log('Failed Login')
+			console.log('Failed Login, path: ' + window.location.pathname);
 		}
 	});
 }());

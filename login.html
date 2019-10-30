@@ -2,8 +2,32 @@
 <html lang="en">
 	<head>
 		<title>Group Application</title>
+		<link rel="preconnect" href="https://www.gstatic.com">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="theme-color" content="#FB2525"/>
+		<meta name="author" content="Erwan & ALEEF02">
+		<meta name="Description" content="Orange County Fire Authority Group Notification App">
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<link rel="manifest" href="manifest.json">
+		<link rel="shortcut icon" href="images/favicon.ico"/>
+		<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+		<link rel="apple-touch-startup-image" href="images/apple-touch-icon.png">
+		<meta name="apple-mobile-web-app-capable" content="yes"/>
+		<link rel="icon" sizes="16x16 32x32" href="images/favicon.ico">
 	</head>
 	<body>
 		<h1>Successful Login</h1>
+		<div class="logoutbox">
+			<form>
+				<input type="button" name="logout" id="logout" value="Logout">
+			</form>
+		</div>
+		<script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-analytics.js"></script>
+		<!-- Add Firebase products that you want to use -->
+		<script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-auth.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-firestore.js"></script>
+		<script src="js/login.js"></script>
 	</body>
 </html>
