@@ -15,6 +15,15 @@
 		<link rel="apple-touch-startup-image" href="images/apple-touch-icon.png">
 		<meta name="apple-mobile-web-app-capable" content="yes"/>
 		<link rel="icon" sizes="16x16 32x32" href="images/favicon.ico">
+		<!-- Stylesheet -->
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+
+		<!-- jQuery & Bootstrap -->
+		<script src="js/jquery.slim.min.js"></script>
+		<script src="js/popper.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/BsMultiSelect.js"></script>
+
 	</head>
 	<header id="nav">
 		<div class="logo">
@@ -31,5 +40,40 @@
 				</li>
 			</ul>
 		</div>
+		
 	</header>
+	<section>
+		<form>
+			<div>
+				<label>Notification Message</label>
+				<textarea name="message"></textarea>
+			</div>
+		
+			<div>
+				<label>Select Groups</label>
+				<select name="groups" id="groups" class="form-control"  multiple="multiple" style="display: none;">
+					<option value="NA">No Groups</option>
+					<option value="G1">Group 1</option>
+					<option value="G2">Group 2</option>
+					<option value="G3">Group 3</option>
+				</select>
+				<script>
+					$(function(){
+						$("select").bsMultiSelect();
+					});
+				</script>
+			</div>
+			<div>
+				<label>Select Contacts</label>
+				<select name="contacts" id="contacts" class="form-control"  multiple="multiple" style="display: none;">
+					<option value="NA">No Contact</option>
+					<option value="C1">Contact 1</option>
+					<option value="C2">Contact 2</option>
+					<option value="C3">Contact 3</option>
+				</select>
+			</div>
+				<input type="button" name="submit" id="submit" value="Send Message">
+			</form>
+
+	</section>
 </html>
