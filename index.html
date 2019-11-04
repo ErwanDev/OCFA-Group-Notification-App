@@ -3,7 +3,7 @@
 	<head>
 		<title>OCFA Group Notification</title>
 		<link rel="preconnect" href="https://www.gstatic.com">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="theme-color" content="#FB2525"/>
 		<meta name="author" content="Erwan & ALEEF02">
 		<meta name="Description" content="Orange County Fire Authority Group Notification App">
@@ -50,10 +50,10 @@
 			<h1>Login Here</h1>
 			<form>
 				<p>Username</p>
-				<input label="Username" type="text" name="email" id="email" placeholder="Enter Email">
+				<input aria-label="Username" label="Username" type="text" name="email" id="email" autocomplete="username" placeholder="Enter Email">
 				<p>Password</p>
-				<input label="Pasword" type="password" name="password" id="password" placeholder="Enter Password">
-				<input label="Submit" type="button" name="submit" id="submit" value="Login">
+				<input aria-label="Pasword" label="Pasword" type="password" name="password" id="password" autocomplete="current-password" placeholder="Enter Password">
+				<input aria-label="Submit" label="Submit" type="button" name="submit" id="submit" value="Login">
 			</form>
 		</div>
 		<script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
