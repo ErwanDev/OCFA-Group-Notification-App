@@ -1,6 +1,9 @@
 Location /login
 	Rewrite /login.html
 	
+Location /notification
+	Rewrite /notification.html
+	
 Files
 	service-worker.js
 	images/avatar.jpg

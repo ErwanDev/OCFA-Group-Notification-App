@@ -40,7 +40,7 @@
 			console.log('Successful Login');
 		} else if (firebaseUser) {
 			console.log('Successful Login');
-		} else if (window.location.pathname.substring(window.location.pathname.length - 10, window.location.pathname.length) == "login.html") {
+		} else if (window.location.pathname.substring(window.location.pathname.length - 10, window.location.pathname.length) == "login.html" || window.location.pathname.substring(window.location.pathname.length - 17, window.location.pathname.length) == "notification.html") {
 			console.log('Failed Login, redirecting');
 			window.location.replace("index.html");
 		} else {
