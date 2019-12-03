@@ -1,0 +1,41 @@
+<div class="flash row">
+	{% if flash.getMessage('default') %}
+		<div class="alert">
+			<div class="container">
+				{{ flash.getMessage('info') | first }}
+			</div>
+		</div>
+	{% endif %}
+
+	{% if flash.getMessage('info') %}
+		<div class="alert info">
+			<div class="container">
+				{{ flash.getMessage('info') | first }}
+			</div>
+		</div>
+	{% endif %}
+
+	{% if flash.getMessage('danger') %}
+		<div class="alert danger">
+			<div class="container">
+				{{ flash.getMessage('danger') | first }}
+			</div>
+		</div>
+	{% endif %}
+
+	{% if flash.getMessage('success') %}
+		<div class="alert success">
+			<div class="container">
+				{{ flash.getMessage('success') | first }}
+			</div>
+		</div>
+	{% endif %}
+
+	{% if flash.getMessage('warning') %}
+		<div class="alert warning">
+			<div class="container">
+				{{ flash.getMessage('warning') | first }}
+			</div>
+		</div>
+	{% endif %}
+</div>

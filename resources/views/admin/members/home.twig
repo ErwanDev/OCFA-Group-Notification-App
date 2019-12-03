@@ -1,0 +1,24 @@
+{% extends 'dashboard.twig' %}
+{% block content %}
+	<div class="flex flex-items-center mb2">
+		<h3 class="fw300 m0 flex-fill">Members</h3>
+		<a href="{{ path_for('admin.members.create') }}" class="btn small">Add member</a>
+	</div>
+	{% if users is not empty %}
+		<div class="row">
+			{% for user in users %}
+				<div class="col-4 mb2 card">
+					<p class="p0">{{ user.name }}</p>
+					<p class="p0 uppercase fw600" style="
+						font-size: 1.1rem;
+						letter-spacing: .1rem;
+					">{{ user.email }}</p>
+				</div>
+			{% endfor %}
+		</div>
+	{% else %}
+		<div class="R50 R300c br5 px2 py1">
+			No members found.
+		</div>
+	{% endif %}
+{% endblock %}

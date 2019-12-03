@@ -1,0 +1,33 @@
+<div class="sidebar no-scroll flex flex-column" style="overflow-y: scroll">
+	
+	<div class="flex-fill">
+		<div class="row">
+			<img src="https://upload.wikimedia.org/wikipedia/commons/5/5d/OCFA_logo.png" alt="" class="p5">
+		</div>
+		<a href="{{ path_for('dashboard.notifications.home') }}">Notifications</a>
+		<a href="{{ path_for('dashboard.groups.home') }}">Groups</a>
+		<a href="{{ path_for('dashboard.contacts.home') }}">Contacts</a>
+
+		{% if auth.user.is_admin %}
+			<h4 class="fw600 uppercase mb0 mt2">Administration</h4>
+			<a href="{{ path_for('admin.members.home') }}">Members</a>
+		{% endif %}
+	</div>
+
+	<div class="mb2">
+		<p class="p0">{{ auth.user.name }}</p>
+		<p class="p0 uppercase fw600" style="
+			font-size: 1.1rem;
+			letter-spacing: .1rem;
+		">{{ auth.user.email }}</p>
+	</div>
+
+	<div class="mb2">
+		<a href="{{ path_for('dashboard.account.password') }}" class="N500c N300b br0" style="border-left: 3px solid">Change my password</a>
+	</div>
+
+	<a href="{{ path_for('auth.logout') }}" class="R300c R300b br0" style="border-left: 3px solid">
+		<i class="fa fa-fw fa-sign-out"></i>
+		Logout
+	</a>
+</div>

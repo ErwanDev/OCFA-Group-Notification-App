@@ -1,0 +1,33 @@
+{% extends 'dashboard.twig' %}
+{% block content %}
+	<h3 class="fw300 mb2">Edit group</h3>
+	<form action="{{ path_for('dashboard.groups.edit', {id: group.id}) }}" method="POST">
+		{{ csrf()|raw }}
+		<label for="name" class="{{ errors.name ? 'has-error' }}">
+			Name
+			<input type="text" name="name" id="name" value="{{ group.name }}">
+			{% if errors.name %}
+				<span class="help-block">
+					{{ errors.name|first }}
+				</span>
+			{% endif %}
+		</label>
+		<div class="row">
+			<h4 class="fw300">Contacts</h4>
+			<div class="contacts card mb2 p0" style="height: 20rem; max-height: 20rem; overflow-y: scroll;">
+				{% for contact in contacts %}
+					<label for="contact-{{ contact.id }}" class="flex flex-items-center contact m0">
+						<input type="checkbox" id="contact-{{ contact.id }}" name="contacts[]" value="{{ contact.id }}" class="mr2"
+							{% if group.contacts.contains(contact.id) %}checked{% endif %}
+						>
+						<span class="flex-fill">
+							<p class="p0">{{ contact.name }}</p>
+							<p class="p0 fw600 uppercase" style="font-size: 1.1rem; letter-spacing: .1rem;">{{ contact.email }}</p>
+						</span>
+					</label>
+				{% endfor %}
+			</div>
+		</div>
+		<button type="submit" class="btn">Save group</button>
+	</form>
+{% endblock %}

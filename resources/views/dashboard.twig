@@ -1,0 +1,14 @@
+{% extends 'templates/global.twig' %}
+{% block body %}
+	{% include 'templates/partials/flash.twig' %}
+	{% include 'templates/partials/navigation.twig' %}
+	<div class="row flex h-full N0">
+		{% include 'templates/partials/sidebar.twig' %}
+		<div class="row w-full h-full" style="overflow-y: scroll;">
+			<div class="p5">
+				{% block content %}{% endblock %}
+			</div>
+		</div>
+	</div>
+	{% include 'templates/partials/footer.twig' %}
+{% endblock %}

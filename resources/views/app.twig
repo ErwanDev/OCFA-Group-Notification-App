@@ -1,0 +1,7 @@
+{% extends 'templates/global.twig' %}
+{% block body %}
+	{% include 'templates/partials/flash.twig' %}
+	{% include 'templates/partials/navigation.twig' %}
+	{% block content %}{% endblock %}
+	{% include 'templates/partials/footer.twig' %}
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'dashboard.twig' %}
+{% block content %}
+    <div class="flex flex-items-center mb2">
+		<h3 class="fw300 m0 flex-fill">Notifications</h3>
+		<a href="{{ path_for('dashboard.notifications.create') }}" class="btn small">Create notification</a>
+	</div>
+	{% if notifications is not empty %}
+		<div class="row">
+			{% for notification in notifications %}
+				<div class="col-4 mb2 card">
+					<div class="mb1">
+						<h3 class="m0 uppercase fw600">{{ notification.subject }}</h3>
+						<p class="p0 fw300">{{ notification.count }} Contacts were notified</p>
+					</div>
+					<a href="{{ path_for('dashboard.notifications.view', {id: notification.id}) }}" class="btn small mr1">
+						<i class="fa fa-fw fa-eye"></i>
+						View
+					</a>
+					<a href="{{ path_for('dashboard.notifications.delete', {id: notification.id}) }}" class="btn small R300c mr1">
+						<i class="fa fa-fw fa-trash"></i>
+						Delete
+					</a>
+				</div>
+			{% endfor %}
+		</div>
+	{% else %}
+		<div class="R50 R300c br5 px2 py1">
+			No notifications found.
+		</div>
+	{% endif %}
+{% endblock %}

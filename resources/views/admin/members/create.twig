@@ -1,0 +1,35 @@
+{% extends 'dashboard.twig' %}
+{% block content %}
+	<h3 class="fw300 mb2">Add a new member</h3>
+	<form action="{{ path_for('admin.members.create') }}" method="POST">
+		{{ csrf()|raw }}
+		<label for="name" class="{{ errors.name ? 'has-error' }}">
+			Name
+			<input type="text" name="name" id="name" value="{{ old.name }}">
+			{% if errors.name %}
+				<span class="help-block">
+					{{ errors.name|first }}
+				</span>
+			{% endif %}
+		</label>
+		<label for="email" class="{{ errors.email ? 'has-error' }}">
+			Email
+			<input type="text" name="email" id="email" value="{{ old.email }}">
+			{% if errors.email %}
+				<span class="help-block">
+					{{ errors.email|first }}
+				</span>
+			{% endif %}
+		</label>
+		<label for="password" class="{{ errors.password ? 'has-error' }}">
+			Password
+			<input type="password" name="password" id="password" value="{{ old.password }}">
+			{% if errors.password %}
+				<span class="help-block">
+					{{ errors.password|first }}
+				</span>
+			{% endif %}
+		</label>
+		<button type="submit" class="btn">Add member</button>
+	</form>
+{% endblock %}

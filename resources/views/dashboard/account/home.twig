@@ -1,0 +1,15 @@
+{% extends 'dashboard.twig' %}
+{% block content %}
+	<div class="row flex flex-items-center box p2 mb2">
+		<div class="flex-fill">
+			<h3 class="fw400" style="margin-bottom: -.5rem">{{ auth.user.name }}</h3>
+			<p class="p0">{{ auth.user.email }}</p>
+			<p class="p0 fw300">Member since {{ auth.user.created_at|date('d M Y') }}</p>
+		</div>
+		<div class="flex-right">
+			<div class="owl">
+				<a href="{{ path_for('dashboard.account.password') }}" class="btn block T300 N0c">Change password</a>
+			</div>
+		</div>
+	</div>
+{% endblock %}

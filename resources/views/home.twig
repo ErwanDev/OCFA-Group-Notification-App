@@ -1,0 +1,16 @@
+{% extends 'app.twig' %}
+{% block content %}
+	<div class="row flex-align-center mb5">
+		<div class="t-center N0c">
+			<img src="https://upload.wikimedia.org/wikipedia/commons/5/5d/OCFA_logo.png" alt="Orange County Fire Authority's Logo" class="mb2" style="
+				width: 20rem
+			">
+			<h1 class="fw300">Orange County</h1>
+			<h3 class="uppercase fw600" style="letter-spacing: .5rem">Fire Authority</h3>
+			<a href="{{ path_for('auth.login') }}" class="btn uppercase fw600 px5 mt2" style="
+				background: rgba(255,255,255,.15);
+				color: #fff;
+			">System Access</a>
+		</div>
+	</div>
+{% endblock %}

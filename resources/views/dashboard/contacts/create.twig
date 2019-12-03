@@ -1,0 +1,55 @@
+{% extends 'dashboard.twig' %}
+{% block content %}
+	<h3 class="fw300 mb2">Create a new contact</h3>
+	<form action="{{ path_for('dashboard.contacts.create') }}" method="POST">
+		{{ csrf()|raw }}
+		<label for="name" class="{{ errors.name ? 'has-error' }}">
+			Name
+			<input type="text" name="name" id="name" value="{{ old.name }}">
+			{% if errors.name %}
+				<span class="help-block">
+					{{ errors.name|first }}
+				</span>
+			{% endif %}
+		</label>
+		<label for="email" class="{{ errors.email ? 'has-error' }}">
+			Email
+			<input type="text" name="email" id="email" value="{{ old.email }}">
+			{% if errors.email %}
+				<span class="help-block">
+					{{ errors.email|first }}
+				</span>
+			{% endif %}
+		</label>
+		<label for="phone" class="{{ errors.phone ? 'has-error' }}">
+			Phone
+			<input type="text" name="phone" id="phone" value="{{ old.phone }}">
+			{% if errors.phone %}
+				<span class="help-block">
+					{{ errors.phone|first }}
+				</span>
+			{% endif %}
+		</label>
+		<div class="row">
+			<h4 class="fw300">Preference</h4>
+			<label for="p-email">
+				<input type="radio" id="p-email" name="preference" value="email">
+				Email
+			</label>
+			<label for="p-phone">
+				<input type="radio" id="p-phone" name="preference" value="phone">
+				Phone
+			</label>
+			<label for="p-both">
+				<input type="radio" id="p-both" name="preference" value="both">
+				Both
+			</label>
+			{% if errors.preference %}
+				<div class="help-block R300c">
+					{{ errors.preference|first }}
+				</div>
+			{% endif %}
+		</div>
+		<button type="submit" class="btn">Create contact</button>
+	</form>
+{% endblock %}

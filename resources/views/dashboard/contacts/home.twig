@@ -1,0 +1,44 @@
+{% extends 'dashboard.twig' %}
+{% block content %}
+	<div class="flex flex-items-center mb2">
+		<h3 class="fw300 m0 flex-fill">Contacts</h3>
+		<a href="{{ path_for('dashboard.contacts.create') }}" class="btn small">Create contact</a>
+	</div>
+	{% if contacts is not empty %}
+		<table cellpadding="0" cellspacing="0">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Email</th>
+					<th>Phone</th>
+					<th>Preference</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for contact in contacts %}
+				    <tr>
+				    	<td>{{ contact.name }}</td>
+				    	<td>{{ contact.email }}</td>
+				    	<td>{{ contact.phone }}</td>
+				    	<td>{{ contact.preference|capitalize }}</td>
+				    	<td>
+				    		<a href="{{ path_for('dashboard.contacts.edit', {id: contact.id}) }}" class="btn small mr1">
+				    			<i class="fa fa-fw fa-pencil"></i>
+				    			Edit
+				    		</a>
+				    		<a href="{{ path_for('dashboard.contacts.delete', {id: contact.id}) }}" class="btn small R300c">
+				    			<i class="fa fa-fw fa-trash"></i>
+				    			Delete
+				    		</a>
+				    	</td>
+				    </tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	{% else %}
+		<div class="R50 R300c br5 px2 py1">
+			No contacts found.
+		</div>
+	{% endif %}
+{% endblock %}

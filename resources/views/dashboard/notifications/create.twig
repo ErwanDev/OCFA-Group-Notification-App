@@ -1,0 +1,40 @@
+{% extends 'dashboard.twig' %}
+{% block content %}
+	<h3 class="fw300 mb2">Send notification</h3>
+	<form action="{{ path_for('dashboard.notifications.create') }}" method="POST">
+		{{ csrf()|raw }}
+		<label for="subject" class="{{ errors.subject ? 'has-error' }}">
+			Subject
+			<input type="text" name="subject" id="subject" value="{{ old.subject }}">
+			{% if errors.subject %}
+				<span class="help-block">
+					{{ errors.subject|first }}
+				</span>
+			{% endif %}
+		</label>
+		<label for="message" class="{{ errors.message ? 'has-error' }}">
+			Message
+			<textarea name="message" id="message">{{ old.message }}</textarea>
+			{% if errors.message %}
+				<span class="help-block">
+					{{ errors.message|first }}
+				</span>
+			{% endif %}
+		</label>
+		<div class="row">
+			<h4 class="fw300">Groups</h4>
+			<div class="contacts card mb2 p0" style="height: 20rem; max-height: 20rem; overflow-y: scroll;">
+				{% for group in groups %}
+					<label for="group-{{ group.id }}" class="flex flex-items-center contact m0">
+						<input type="checkbox" id="group-{{ group.id }}" name="groups[]" value="{{ group.id }}" class="mr2">
+						<span class="flex-fill">
+							<p class="p0">{{ group.name }}</p>
+							<p class="p0 fw600 uppercase" style="font-size: 1.1rem; letter-spacing: .1rem;">{{ group.contacts.count }} contacts in this group</p>
+						</span>
+					</label>
+				{% endfor %}
+			</div>
+		</div>
+		<button type="submit" class="btn">Send notification</button>
+	</form>
+{% endblock %}

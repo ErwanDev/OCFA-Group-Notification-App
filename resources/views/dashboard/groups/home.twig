@@ -1,0 +1,31 @@
+{% extends 'dashboard.twig' %}
+{% block content %}
+	<div class="flex flex-items-center mb2">
+		<h3 class="fw300 m0 flex-fill">Groups</h3>
+		<a href="{{ path_for('dashboard.groups.create') }}" class="btn small">Create group</a>
+	</div>
+	{% if groups is not empty %}
+		<div class="row">
+			{% for group in groups %}
+				<div class="col-4 mb2 card">
+					<h3 class="m0 uppercase fw600">{{ group.name }}</h3>
+					<p class="p0 mb1">{{ group.contacts.count }} Contacts in this group</p>
+					<div class="row">
+			    		<a href="{{ path_for('dashboard.groups.edit', {id: group.id}) }}" class="btn small mr1">
+			    			<i class="fa fa-fw fa-pencil"></i>
+			    			Edit
+			    		</a>
+			    		<a href="{{ path_for('dashboard.groups.delete', {id: group.id}) }}" class="btn small R300c">
+			    			<i class="fa fa-fw fa-trash"></i>
+			    			Delete
+			    		</a>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	{% else %}
+		<div class="R50 R300c br5 px2 py1">
+			No groups found.
+		</div>
+	{% endif %}
+{% endblock %}

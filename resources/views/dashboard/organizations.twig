@@ -1,0 +1,29 @@
+{% extends 'dashboard.twig' %}
+{% block content %}
+	{% if organizations is not empty %}
+		<h3 class="fw300 mb2">Your organizations</h3>
+		<div class="owl">
+			{% for organization in organizations %}
+				<div class="box row flex flex-items-center">
+					<div class="flex-fill">
+				    	{{ organization.name }}
+					</div>
+					<a href="{{ path_for('dashboard.organizations.manage', {id: organization.id}) }}" class="btn small">Manage</a>
+				</div>
+			{% endfor %}
+			{% if auth.user.organization.exists %}
+				<div class="box row flex flex-items-center">
+					<div class="flex-fill">
+				    	{{ auth.user.organization.name }}
+					</div>
+					<a href="{{ path_for('dashboard.organizations.manage', {id: auth.user.organization.id}) }}" class="btn small">Manage</a>
+				</div>
+			{% endif %}
+		</div>
+	{% else %}
+		<div class="t-center p3">
+			<h3 class="fw300 m0">You don't have any organizaiton.</h3>
+			<p class="fw300 p0">Contact our sales team.</p>
+		</div>
+	{% endif %}
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'dashboard.twig' %}
+{% block content %}
+	<div class="row">
+		<a href="{{ path_for('dashboard.notifications.home') }}" class="btn small mb2">
+			<i class="fa fa-fw fa-arrow-left"></i>
+			Go back to notification list
+		</a>
+		<div class="card mb2">
+			<h3 class="fw600">{{ notification.subject }}</h3>
+			<p class="p0 fw300">{{ notification.message }}</p>
+		</div>
+		<div class="row">
+			<div class="col-6">
+				<h4 class="fw600 uppercase">Notified contacts</h4>
+				{% for group in notification.groups %}
+				    {% for contact in group.contacts %}
+				        <div class="card">
+							<p class="p0">{{ contact.name }}</p>
+							<p class="p0 uppercase fw600" style="
+								font-size: 1.1rem;
+								letter-spacing: .1rem;
+							">{{ contact.email }}</p>
+							<p class="p0 uppercase fw600" style="
+								font-size: 1.1rem;
+								letter-spacing: .1rem;
+							">{{ contact.phone }}</p>
+				        </div>
+				    {% endfor %}
+				{% endfor %}
+			</div>
+			<div class="col-6">
+				<h4 class="fw600 uppercase">Notification created by</h4>
+				<div class="card">
+					<p class="p0">{{ notification.user.name }}</p>
+					<p class="p0 uppercase fw600" style="
+						font-size: 1.1rem;
+						letter-spacing: .1rem;
+					">{{ notification.user.email }}</p>
+		        </div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
