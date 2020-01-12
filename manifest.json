@@ -1,0 +1,47 @@
+{  
+    "name":"Orange County Fire Authority Group Notification App",
+    "short_name":"OCFA",
+    "background_color":"#fb2525",
+    "theme_color":"#fb2525",
+    "description":"Orange County Fire Authority Group Notification App Created by Erwan Caron and Anthony Ford",
+	"display": "standalone",
+	"start_url": "https://ocfapanel.000webhostapp.com/",
+	"orientation": "portrait",
+    "icons":[  
+        {  
+            "src":"public/uploads/favicon-16.png",
+            "sizes":"16x16",
+            "type":"image/png"
+        },
+        {  
+            "src":"public/uploads/favicon-32.png",
+            "sizes":"32x32",
+            "type":"image/png"
+        },
+        {  
+            "src":"public/uploads/favicon-72.png",
+            "sizes":"72x72",
+            "type":"image/png"
+        },
+        {  
+            "src":"public/uploads/favicon-96.png",
+            "sizes":"96x96",
+            "type":"image/png"
+        },
+        {  
+            "src":"public/uploads/favicon-144.png",
+            "sizes":"144x144",
+            "type":"image/png"
+        },
+        {  
+            "src":"public/uploads/favicon-192.png",
+            "sizes":"192x192",
+            "type":"image/png"
+        },
+        {  
+            "src":"public/uploads/favicon-512.png",
+            "sizes":"512x512",
+            "type":"image/png"
+        }
+    ]
+}
